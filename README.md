@@ -1,4 +1,5 @@
 # dockercoins
 
-> Dockercoins helm
-> 0.0.1
+## Dockercoins helm
+
+version : 0.0.6
