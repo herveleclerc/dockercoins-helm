@@ -21,6 +21,6 @@ spec:
         image: {{ .Values.images.rng.repository }}:{{ .Values.images.rng.tag }}
         imagePullPolicy: {{ .Values.config.imagePullPolicy }}
         ports:
-        - name: {{ template "dockercoins.name" . }}-rng
+        - name: rng
           containerPort: 80
         env: []

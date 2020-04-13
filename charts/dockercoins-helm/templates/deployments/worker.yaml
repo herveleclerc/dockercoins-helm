@@ -21,6 +21,6 @@ spec:
         image: {{ .Values.images.worker.repository }}:{{ .Values.images.worker.tag }}
         imagePullPolicy: {{ .Values.config.imagePullPolicy }}
         ports:
-        - name: {{ template "dockercoins.name" . }}-worker
+        - name: worker
           containerPort: 8001
         env: []

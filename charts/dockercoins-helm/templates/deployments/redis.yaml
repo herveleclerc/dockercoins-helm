@@ -21,6 +21,6 @@ spec:
         image: {{ .Values.images.redis.repository }}:{{ .Values.images.redis.tag }}
         imagePullPolicy: {{ .Values.config.imagePullPolicy }}
         ports:
-        - name: {{ template "dockercoins.name" . }}-redis
+        - name: redis
           containerPort: 6379
         env: []

@@ -21,6 +21,6 @@ spec:
         image: {{ .Values.images.webui.repository }}:{{ .Values.images.webui.tag }}
         imagePullPolicy: {{ .Values.config.imagePullPolicy }}
         ports:
-        - name: {{ template "dockercoins.name" . }}-webui
+        - name: webui
           containerPort: 80
         env: []
