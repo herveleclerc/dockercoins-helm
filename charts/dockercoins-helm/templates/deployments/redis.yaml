@@ -7,12 +7,20 @@ metadata:
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "dockercoins.name" . }}-redis
+  template:
+    metadata:
+      labels:
+        app: {{ template "dockercoins.name" . }}-redis
     spec:
       containers:
-        - name: {{ template "dockercoins.fullname" . }}-redis
-          image: {{ .Values.images.redis.repository }}:{{ .Values.images.redis.tag }}
-          imagePullPolicy: {{ .Values.config.imagePullPolicy }}
-          ports:
-            - name: container
-              containerPort: 6379
-          env: []
+      - name: {{ template "dockercoins.fullname" . }}-redis
+        image: {{ .Values.images.redis.repository }}:{{ .Values.images.redis.tag }}
+        imagePullPolicy: {{ .Values.config.imagePullPolicy }}
+        ports:
+        - name: {{ template "dockercoins.name" . }}-redis
+          containerPort: 6379
+        env: []

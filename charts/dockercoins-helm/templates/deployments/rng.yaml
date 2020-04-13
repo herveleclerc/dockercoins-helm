@@ -7,12 +7,20 @@ metadata:
     chart: {{ .Chart.Name }}-{{ .Chart.Version }}
     release: {{ .Release.Name }}
     heritage: {{ .Release.Service }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ template "dockercoins.name" . }}-rng
+  template:
+    metadata:
+      labels:
+        app: {{ template "dockercoins.name" . }}-rng
     spec:
       containers:
-        - name: {{ template "dockercoins.fullname" . }}-rng
-          image: {{ .Values.images.rng.repository }}:{{ .Values.images.rng.tag }}
-          imagePullPolicy: {{ .Values.config.imagePullPolicy }}
-          ports:
-            - name: container
-              containerPort: 80
-          env: []
+      - name: {{ template "dockercoins.fullname" . }}-rng
+        image: {{ .Values.images.rng.repository }}:{{ .Values.images.rng.tag }}
+        imagePullPolicy: {{ .Values.config.imagePullPolicy }}
+        ports:
+        - name: {{ template "dockercoins.name" . }}-rng
+          containerPort: 80
+        env: []
