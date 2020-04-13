@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ template "dockercoins.fullname" . }}-webui
+  labels:
+    app: {{ template "dockercoins.name" . }}-webui
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+spec:
+  {{- if .Values.ingress.webui.enabled }}
+  type: ClusterIP
+  {{- else }}
+  type: {{ .Values.service.webui.type }}
+  {{- if (or (eq .Values.service.webui.type "LoadBalancer") (eq .Values.service.webui.type "NodePort")) }}
+  externalTrafficPolicy: {{ .Values.service.webui.externalTrafficPolicy }}
+  {{- end }}
+  {{- end }}
+  ports:
+    - name: http
+      port: 80
+      targetPort: container
+      {{- if (and (eq .Values.service.webui.type "NodePort") (not (empty .Values.service.webui.nodePorts.http))) }}
+      nodePort: {{ .Values.service.webui.nodePorts.http }}
+      {{- end }}
+  selector:
+    app: {{ template "dockercoins.name" . }}-webui
+    release: {{ .Release.Name }}

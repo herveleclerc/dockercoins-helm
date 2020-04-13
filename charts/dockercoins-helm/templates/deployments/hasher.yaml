@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "dockercoins.fullname" . }}-hasher
+  labels:
+    app: {{ template "dockercoins.name" . }}-hasher
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    spec:
+      containers:
+        - name: {{ template "dockercoins.fullname" . }}-hasher
+          image: {{ .Values.images.hasher.repository }}:{{ .Values.images.hasher.tag }}
+          imagePullPolicy: {{ .Values.config.imagePullPolicy }}
+          ports:
+            - name: container
+              containerPort: 80
+          env: []

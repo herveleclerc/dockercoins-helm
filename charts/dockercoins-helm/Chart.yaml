@@ -1,0 +1,15 @@
+name: dockercoins
+home: https://github.com/herveleclerc/dockercoins-helm
+icon: 
+version: 0.0.1
+appVersion: latest
+description: 'Dockercoins helm'
+keywords:
+  - dockercoins
+  - dockercoins
+  - training
+sources:
+  - https://github.com/herveleclerc/dockercoins-helm
+maintainers:
+  - name: 'Herve Leclerc'
+    email: herve.leclerc@alterway.fr

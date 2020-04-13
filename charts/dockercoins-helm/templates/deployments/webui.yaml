@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "dockercoins.fullname" . }}-webui
+  labels:
+    app: {{ template "dockercoins.name" . }}-webui
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    spec:
+      containers:
+        - name: {{ template "dockercoins.fullname" . }}-webui
+          image: {{ .Values.images.webui.repository }}:{{ .Values.images.webui.tag }}
+          imagePullPolicy: {{ .Values.config.imagePullPolicy }}
+          ports:
+            - name: container
+              containerPort: 80
+          env: []

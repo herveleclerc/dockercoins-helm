@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "dockercoins.fullname" . }}-rng
+  labels:
+    app: {{ template "dockercoins.name" . }}-rng
+    chart: {{ .Chart.Name }}-{{ .Chart.Version }}
+    release: {{ .Release.Name }}
+    heritage: {{ .Release.Service }}
+    spec:
+      containers:
+        - name: {{ template "dockercoins.fullname" . }}-rng
+          image: {{ .Values.images.rng.repository }}:{{ .Values.images.rng.tag }}
+          imagePullPolicy: {{ .Values.config.imagePullPolicy }}
+          ports:
+            - name: container
+              containerPort: 80
+          env: []
