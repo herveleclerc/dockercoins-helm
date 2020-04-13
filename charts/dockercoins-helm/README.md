@@ -1,3 +1,3 @@
 # dockercoins
 
-> Dockercoins helm
+> Dockercoins helm 0.0.2
