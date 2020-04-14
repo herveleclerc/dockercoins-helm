@@ -3,6 +3,25 @@ entries:
   dockercoins:
   - apiVersion: v2
     appVersion: latest
+    created: "2020-04-14T08:50:26.406614697Z"
+    description: Dockercoins helm
+    digest: 5990e6b76dd7cc537303055af76d92008bfeb3ad0ab1d83933f2fda6a5b18126
+    home: https://github.com/herveleclerc/dockercoins-helm
+    icon: https://github.com/herveleclerc/dockercoins-helm.ico
+    keywords:
+    - dockercoins
+    - training
+    maintainers:
+    - email: herve.leclerc@alterway.fr
+      name: Herve Leclerc
+    name: dockercoins
+    sources:
+    - https://github.com/herveleclerc/dockercoins-helm
+    urls:
+    - https://github.com/herveleclerc/dockercoins-helm/releases/download/dockercoins-0.1.0/dockercoins-0.1.0.tgz
+    version: 0.1.0
+  - apiVersion: v2
+    appVersion: latest
     created: "2020-04-14T08:23:39.44890693Z"
     description: Dockercoins helm
     digest: 2e19cdd4982719d8c98d4fb91308302fc29850a9cc70f8326ebc0f34521e8dbc
