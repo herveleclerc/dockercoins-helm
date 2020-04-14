@@ -22,6 +22,6 @@ spec:
         image: {{ .Values.images.webui.repository }}:{{ .Values.images.webui.tag }}
         imagePullPolicy: {{ .Values.config.imagePullPolicy }}
         ports:
-        - name: webui
+        - name: container
           containerPort: 80
         env: []

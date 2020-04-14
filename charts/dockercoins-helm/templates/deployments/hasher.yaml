@@ -22,6 +22,6 @@ spec:
         image: {{ .Values.images.hasher.repository }}:{{ .Values.images.hasher.tag }}
         imagePullPolicy: {{ .Values.config.imagePullPolicy }}
         ports:
-        - name: hasher
+        - name: container
           containerPort: 80
         env: []
