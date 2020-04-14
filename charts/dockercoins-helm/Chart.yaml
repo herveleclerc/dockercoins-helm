@@ -2,7 +2,7 @@ apiVersion: v2
 name: dockercoins
 home: https://github.com/herveleclerc/dockercoins-helm
 icon:  https://github.com/herveleclerc/dockercoins-helm.ico
-version: 0.0.6
+version: 0.0.7
 appVersion: latest
 description: 'Dockercoins helm'
 keywords:

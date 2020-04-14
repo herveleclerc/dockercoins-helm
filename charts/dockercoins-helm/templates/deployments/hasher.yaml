@@ -15,6 +15,7 @@ spec:
     metadata:
       labels:
         app: {{ template "dockercoins.name" . }}-hasher
+        release: {{ .Release.Name }}
     spec:
       containers:
       - name: {{ template "dockercoins.fullname" . }}-hasher
