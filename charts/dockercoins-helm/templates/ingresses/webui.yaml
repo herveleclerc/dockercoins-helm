@@ -28,7 +28,7 @@ spec:
         paths:
           - path: {{ .Values.ingress.webui.path }}
             backend:
-              serviceName: {{ template "dockercoins.fullname" . }}-webui
+              serviceName: webui
               servicePort: http
   {{- if .Values.ingress.webui.tls }}
   tls:
